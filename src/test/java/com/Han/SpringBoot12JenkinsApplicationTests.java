@@ -1,0 +1,13 @@
+package com.Han;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SpringBoot12JenkinsApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
