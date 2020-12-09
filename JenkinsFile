@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('pull code') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'b13509ef-c7b0-441a-a74f-0d7f3b683bb0', url: 'https://github.com/ConjureLain/Jenkins.git']]])
+            }
+        }
+        stage('build project') {
+            steps {
+                bat 'mvn clean package'
+            }
+        }
+        stage('publish') {
+            steps {
+                deploy adapters: [tomcat8(credentialsId: '2d37d02c-0340-4e96-bc1c-c387dfa3ccc4', path: '', url: 'http://localhost:8080')], contextPath: 'pipelineVersion', war: 'target/*.war'
+            }
+        }
+    }
+}
