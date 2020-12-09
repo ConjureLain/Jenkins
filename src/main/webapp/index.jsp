@@ -7,7 +7,7 @@
 <title>登录</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
+	<h2>This is V1 Branch!</h2>
 	
 	<%--这里提交的路径，需要寻找到项目的路径，需要导入maven jsp包--%>
 	<%--${pageContext.request.contextPath}代表当前的项目--%>
